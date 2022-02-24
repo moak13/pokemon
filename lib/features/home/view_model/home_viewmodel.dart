@@ -3,7 +3,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 import '../../../core/app/app.locator.dart';
 import '../../../core/app/app.logger.dart';
-import '../../../core/model/pokemon.dart';
+import '../../../core/model/results.dart';
 import '../../../core/services/pokemon_service.dart';
 import '../../../core/utils/enums.dart';
 
@@ -12,8 +12,8 @@ class HomeViewModel extends BaseViewModel {
   final _snackbarService = locator<SnackbarService>();
   final log = getLogger('HomeViewModel');
 
-  List<Pokemon>? _pokemonList = [];
-  List<Pokemon>? get pokemonList => _pokemonList;
+  List<Results>? _pokemonList = [];
+  List<Results>? get pokemonList => _pokemonList;
 
   fetchPokemons() async {
     setBusy(true);
@@ -21,7 +21,7 @@ class HomeViewModel extends BaseViewModel {
     response.when(
       success: (success) {
         setBusy(false);
-        _pokemonList = success.pokemon!;
+        _pokemonList = success.results!;
         notifyListeners();
       },
       failure: (failure) {

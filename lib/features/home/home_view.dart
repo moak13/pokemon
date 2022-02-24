@@ -30,6 +30,7 @@ class HomeView extends StatelessWidget {
                         left: 10,
                         right: 10,
                         top: 10,
+                        bottom: 10,
                       ),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
@@ -39,9 +40,8 @@ class HomeView extends StatelessWidget {
                         crossAxisSpacing: 10,
                       ),
                       itemCount: model.pokemonList!.length,
-                      itemBuilder: (BuildContext c, int i) {
+                      itemBuilder: (c, i) {
                         return PokemonCard(
-                          image: model.pokemonList![i].img,
                           title: model.pokemonList![i].name,
                           onTap: () {},
                         );

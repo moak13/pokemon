@@ -14,8 +14,7 @@ class PokemonServiceImpl implements PokemonService {
   @override
   Future<ApiResult<PokemonResponse>> getPokemons() async {
     final response = await _networkService.get<PokemonResponse>(
-      uri: Uri.parse(
-          'https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json'),
+      uri: Uri.parse('https://pokeapi.co/api/v2/pokemon?limit=100&offset=200'),
       converter: (json) {
         log.d(json);
         return PokemonResponse.fromJson(json);
